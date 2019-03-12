@@ -8,15 +8,14 @@ const cors = require("cors");
 
 const app = express();
 
+console.log(process.env.MONGO_URL);
+
 /**
  * Database setup
  */
-mongoose.connect(
-  process.env.MONGO_URL,
-  {
-    useNewUrlParser: true
-  }
-);
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true
+});
 
 app.use(cors());
 app.use(express.json());
@@ -29,4 +28,4 @@ app.use(
 
 app.use(require("./routes"));
 
-app.listen(3000);
+app.listen(3001);
